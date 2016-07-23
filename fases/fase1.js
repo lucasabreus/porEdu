@@ -5,16 +5,16 @@
 
 //Vídeo apresentado no início da fase.
 var dicas = 'Lembre-se de usar o comando MOVER';
-var objetivoMensagem = 'Nessa fase você deverá pegar todos os chips do poranito e ir para a posição indicada na imagem';
+var objetivoMensagem = 'Nessa fase você deverá pegar o chip do poranito.';
 var videoAula = 'https://www.youtube.com/embed/CaTSyqrQQ-o';
 
 //Significa que a tela de objetivo será desenhada seguindo essa matriz.
 var ob = [
        [0,0,0,0,0]
    ,   [0,0,0,0,0]
+   ,   [0,0,1,0,0]
    ,   [0,0,0,0,0]
    ,   [0,0,0,0,0]
-   ,   [0,0,0,0,1]
    ];
 
 //Tela inicial será desenhada de acordo com a seguinte matriz
