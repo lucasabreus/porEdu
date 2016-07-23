@@ -1,0 +1,180 @@
+#menu li{
+	font-size: 24px;
+	font-weight: bold;
+	font-family: Arial;
+	float: left;
+	list-style: none;
+	margin-left: 60px;
+}
+
+#menu a {
+color:white;
+text-decoration:none;
+}
+#menu ul{
+	float: right;
+}
+
+#menu img {
+margin:5px auto;
+display:block;
+}
+
+#linkportfolio {
+margin-top:7px;
+}
+#linkcontato {
+margin-top:13px;
+}
+#titulo h1{
+	font-size: 69px;
+	font-weight: bold;
+	font-family: Arial;
+	text-transform: uppercase;
+	letter-spacing: -4px;
+	line-height:145%;
+}
+
+#titulo span{
+	font-size: 123px;
+	color: #f21847;
+	letter-spacing: -7px;
+	margin-left: -5px;
+}
+
+#titulo h2{
+	text-align: center;
+	font-size: 18px;
+	font-weight: normal;
+	letter-spacing: -1px;	
+}
+
+#titulo a{
+	text-decoration: none;
+	color: #00aeef;
+	font-weight: bold;
+}
+
+#galeria img{
+	margin-bottom: 20px;
+}
+
+
+.conteudo h3{
+	font-weight: normal;
+	font-size: 30px;
+	font-family: Georgia;
+	letter-spacing: -1px;
+}
+
+.barraLateral h3{
+	text-transform: uppercase;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 30px;
+	letter-spacing: -1px;
+	color: #00aeef;	
+	margin-bottom: 0px;
+}
+
+.barraLateral li{
+	list-style: none;
+	font-size: 24px;
+	font-family: Georgia;
+	letter-spacing: -1px;	
+	margin-left: 0;
+}
+
+.subtitulo{
+	text-transform: uppercase;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 45px;
+	letter-spacing: -1px;
+	margin-bottom: 0px;
+	color: #00aeef;
+}
+
+#sobre .subtitulo{
+	color: #00aeef;
+}
+
+#blog .subtitulo{
+	color: #f21847;
+}
+
+#blog .barraLateral h3{
+	color: #f21847;
+}
+
+.post{
+	border-bottom: 1px solid #f21847;
+	margin-bottom:20px;
+}
+
+.post .data{
+	background:#f21847;
+	color: white;
+	font-family: Georgia;
+	font-size: 18px;
+	padding: 5px 10px;
+	border-right:20px solid white;
+	position:relative;
+	top:12px;
+
+
+}
+
+label, input{
+	display: block;
+}
+
+input{
+	width: 213px;
+	height: 34px;
+	margin-bottom: 13px;
+	padding: 0 0 0 5px;
+	border: 1px solid #d9d9d9;
+	font-size: 18px;
+	font-family: Georgia;
+	color: #6b6b6b;
+}
+
+textarea{
+	width: 453px;
+	height: 195px;
+	border: 1px solid #d9d9d9;
+	font-size: 18px;
+	font-family: Georgia;	
+	padding: 5px 0 0 5px;	
+}
+
+label{
+	font-family: Georgia;
+	font-size: 18px;
+	
+}
+
+#botaoEnviar{
+	background:#00aeef;
+	color: white;
+	text-transform: uppercase;
+	font-family: Arial;
+	font-weight: bold;
+	float: right;
+	width: 140px;
+	border: none;
+}
+
+#faixaPreta{
+	background: black;
+}
+
+#faixaContato{
+	background: url(../img/bg.gif);
+}
+
+#separador{
+	background: url(../img/bg.gif);
+	height: 85px;
+}
