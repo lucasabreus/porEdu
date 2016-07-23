@@ -141,7 +141,7 @@ function eventSheetLoaded() {
 function inicializaAjuda(){
    var valorVideo = '<div class="video-container"><iframe src="' + faseAtual.getVideoAula();
    valorVideo += '" frameborder="0" allowfullscreen></iframe></div>';
-   var dicas = faseAtual.getDicas();
+   dicas = faseAtual.getDicas();
    var objetivoMensagem = faseAtual.getObjetivoMensagem();
 
    document.getElementById("video").innerHTML = valorVideo;
