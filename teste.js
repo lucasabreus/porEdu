@@ -58,6 +58,7 @@ function inicializaAjuda(){
    document.getElementById("video").innerHTML = valorVideo;
    document.getElementById("objh6").innerHTML = objetivoMensagem;
    document.getElementById("dicash6").innerHTML = dicas;
+   $('#alerta').openModal();
 }
 
 //Função para desenhar na tela principal de acordo com a matriz Tilemap
@@ -128,10 +129,15 @@ function drawScreen() {
  }
 
  function girarDireita_ () {
-   orientacao = orientacao - 1;
-   if ( orientacao == 0 ) orientacao = 4;
+   if ( orientacao % 4 == 1 ) {
+      orientacao += 3;
+      tileMap[linha][coluna] += 3;
+   }
+   else {
+      orientacao = orientacao - 1;
+       tileMap[linha][coluna] -= 1;
+   }
 
-   tileMap[linha][coluna] = orientacao;
    drawScreen();
  }
 
