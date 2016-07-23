@@ -17,6 +17,7 @@ var tileMap = [
    ,   [0,0,0,0,0]
    ];
 var objetivo;
+var dicas;
 
 var linha;
 var coluna;
@@ -31,7 +32,93 @@ function limparTela () {
    ctx.clearRect(0, 0, tamTela, tamTela);
 }
 
-function zerarMatriz(){
+var faseAtual = new fase();
+
+function fase() {
+    var id;
+    var dicas;
+    var objetivoMensagem;
+    var videoAula;
+    var ob;
+    var inicial
+    var linhainicial;
+    var colunainicial;
+    var orientacaoinicial;
+    var blocos;
+
+   this.setID = function (value) {
+       id = value;
+   };
+
+   this.setDicas = function (value) {
+        dicas = value;
+   };
+   this.setObjetivoMensagem = function (value) {
+        objetivoMensagem = value;
+   };
+   this.setVideoAula = function (value) {
+        videoAula = value;
+   };
+   this.setob = function (value) {
+        ob = value;
+   };
+   this.setInicial = function (value) {
+        inicial = value;
+   };
+   this.setLinha = function (value) {
+        linhainicial = value;
+   };
+   this.setColuna = function (value) {
+        colunainicial = value;
+   };
+   this.setOrientacao = function (value) {
+        orientacaoinicial = value;
+   };
+   this.setBlocos = function (value) {
+        blocos = value;
+   };
+
+   this.getID = function () {
+        return id;
+   };
+   this.getDicas = function () {
+      return dicas;
+   };
+   this.getObjetivoMensagem = function () {
+        return objetivoMensagem;
+   };
+   this.getVideoAula = function () {
+        return videoAula;
+   };
+   this.getob = function () {
+        return ob;
+   };
+   this.getInicial = function () {
+        return inicial;
+   };
+   this.getLinha = function () {
+        return linhainicial;
+   };
+   this.getColuna = function () {
+        return colunainicial;
+   };
+   this.getOrientacao = function () {
+        return orientacaoinicial;
+   };
+   this.getBlocos = function () {
+        return blocos;
+   };
+}
+
+function zerarMatriz( fase ){
+   var inicial = fase.getInicial();
+   var linhainicial = fase.getLinha();
+   var colunainicial = fase.getColuna();
+   var orientacaoinicial = fase.getOrientacao();
+   var ob = fase.getob();
+   blocos = fase.getBlocos();
+   dicas = fase.getDicas();
+
    for( var i=0;i<tileMap.length;i++){
       for(var j=0;j<tileMap[i].length;j++){
          tileMap[i][j] = inicial[i][j];
@@ -47,12 +134,15 @@ function zerarMatriz(){
 }
 
 function eventSheetLoaded() {
-   zerarMatriz();
+   faseAtual = getFase1();
+   zerarMatriz(faseAtual);
 }
 
 function inicializaAjuda(){
-   var valorVideo = '<div class="video-container"><iframe src="' + videoAula;
+   var valorVideo = '<div class="video-container"><iframe src="' + faseAtual.getVideoAula();
    valorVideo += '" frameborder="0" allowfullscreen></iframe></div>';
+   var dicas = faseAtual.getDicas();
+   var objetivoMensagem = faseAtual.getObjetivoMensagem();
 
    document.getElementById("video").innerHTML = valorVideo;
    document.getElementById("objh6").innerHTML = objetivoMensagem;
@@ -205,7 +295,17 @@ function diffMatrizes (){
    if ( bool == 0 ){
       $('#alertaErro').openModal();
    } else {
+      proximaFase();
       $('#alertaAcerto').openModal();
+   }
+}
+
+function proximaFase(){
+   if ( faseAtual.getID() == 1 ){
+      faseAtual = getFase2();
+      zerarMatriz(faseAtual);
+   } else {
+      alert("Você zerou.");
    }
 }
 
