@@ -44,7 +44,6 @@ function zerarMatriz(){
 
    drawScreen();
    drawObjetivo();
-   inicializaAjuda();
 }
 
 function eventSheetLoaded() {
