@@ -35,7 +35,7 @@ function getFase2(){
     var orientacaoinicial = inicial[linhainicial][colunainicial];
 
     //Define quais blocos serão usados na partida
-    var blocos = '<block type="mover"></block> <block type="girarEsquerda"></block> <block type="girarDireita"></block> <block type="repetir"></block> <block type="mudarPersonagem"></block> <block type="poranito"></block> <block type="zygmundi"></block>';
+    var blocos = ' <block type="girarEsquerda"></block> <block type="girarDireita"></block> <block type="repetir"></block> <block type="mudarPersonagem"></block> <block type="poranito"></block> <block type="zygmundi"></block>';
 
     fase2.setID(id);
     fase2.setDicas(dicas);

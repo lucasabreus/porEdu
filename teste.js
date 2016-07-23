@@ -153,8 +153,8 @@ function inicializaAjuda(){
 //Função para desenhar na tela principal de acordo com a matriz Tilemap
 function drawScreen() {
    limparTela();
-	var c = document.getElementById("myCanvas");
-	var ctx = c.getContext("2d");
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
    for (var rowCtr=0;rowCtr<mapRows;rowCtr++) {
       for (var colCtr=0;colCtr<mapCols;colCtr++){
 
