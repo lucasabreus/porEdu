@@ -136,6 +136,7 @@ function zerarMatriz( fase ){
 function eventSheetLoaded() {
    faseAtual = getFase1();
    zerarMatriz(faseAtual);
+   inicializaAjuda();
 }
 
 function inicializaAjuda(){
