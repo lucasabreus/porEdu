@@ -203,9 +203,9 @@ function diffMatrizes (){
       }
    }
    if ( bool == 0 ){
-      alert("Não conseguiu concluir");
+      $('#alertaErro').openModal();
    } else {
-      alert("Parabéns, concluido com sucesso");
+      $('#alertaAcerto').openModal();
    }
 }
 

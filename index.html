@@ -20,7 +20,7 @@
 		<script src="blockly/blocks_compressed.js"></script>
 		<script src="meusblocos.js"></script>
 		<script src="teste.js"></script>
-		<script src="fases/fase1.js"></script>
+		<script id="scrFase" src="fases/fase1.js"></script>
 		<script src="blockly/msg/js/en.js"></script>
 		<script src="blockly/javascript_compressed.js"></script>
 	</head>
@@ -42,9 +42,9 @@
 
       	<div id="alerta" class="modal">
       		<ul class="tabs">
-		        <li class="tab col s3"><a class="active" href="#video">Vídeo</a></li>
-		        <li class="tab col s3"><a href="#obj">Objetivo</a></li>
-		        <li class="tab col s3"><a href="#dicas">Dicas</a></li>
+		        <li class="tab col s3 cyan lighten-3"><a class="active" style="color:white;"href="#video">Vídeo</a></li>
+		        <li class="tab col s3 teal accent-3"><a href="#obj" style="color:white;">Objetivo</a></li>
+		        <li class="tab col s3 blue"><a href="#dicas" style="color:white;">Dicas</a></li>
 	      	</ul>
 	    	<div class="modal-content">
 		      	<div id="video" class="col s12">
@@ -59,16 +59,27 @@
 	    	</div>
 	  	</div>
 
-	  	<div id="alertaAcerto" class="modal">
+	  	<div id="alertaAcerto" class="modal modal-fixed-footer">
 		    <div class="modal-content">
-		    	<h4>Modal Header</h4>
-		      	<p>A bunch of text</p>
+	              <h1 class="flow-text center-align">PARABÉNS!</h1>
+	              <h4 class="flow-text">Você conseguiu completar o objetivo.</h4>
+		    	  <img width="30%" src="img/poranito.png" alt="" class="responsive-img">
+	              <img width="30%" src="img/zygmundi.png" alt="" class="responsive-img">
 		    </div>
 		    <div class="modal-footer">
 		    	<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Próxima fase</a>
 		    </div>
 		</div>
 
+		<div id="alertaErro" class="modal modal-fixed-footer">
+		    <div class="modal-content">
+	              <h1 class="flow-text center-align">FALTA POUCO!</h1>
+	              <h3>Quase conseguiu atingir o objetivo</h3>
+	              <br>
+	               <img width="30%" src="img/poranito.png" alt="" class="responsive-img">
+	              <p class="flow-text">Se não souber o objetivo, clique no botão <a class="waves-effect waves-light btn  light-blue darken-3" onclick="$('#alerta').openModal();">AJUDA</a></p>
+		    </div>
+		</div>
 
 		<div class="container_12">
 			<div class="grid_4">
