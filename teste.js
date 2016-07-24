@@ -134,11 +134,6 @@ function zerarMatriz( fase ){
    drawObjetivo();
 }
 
-//função para carregar os blocos na boolBox de acordo com a fase
- function iniciaToolBox(){
-  
- }
-
 function inicializaAjuda(){
    var valorVideo = '<div class="video-container"><iframe src="' + faseAtual.getVideoAula();
    valorVideo += '" frameborder="0" allowfullscreen></iframe></div>';
@@ -171,9 +166,8 @@ function drawScreen() {
 
  function eventSheetLoaded (){
     faseAtual = getFase1();
-    //zerarMatriz(faseAtual);
-              inicializaAjuda();
-              //iniciaToolBox();
+    zerarMatriz(faseAtual);
+    inicializaAjuda();
  }
 
 //Desenha no canvas do objetivo de acordo com a variável objetivo
