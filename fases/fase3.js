@@ -1,4 +1,4 @@
-function getFase2(){
+function getFase3(){
     fase2 = new fase();
     //Javascript criado para determinar os padrões da fase.
 
@@ -6,17 +6,17 @@ function getFase2(){
     //Objetivo da fase: Jogador usar o laço de repetição "REPITA" e conseguir pegar o chip.
 
     //Vídeo apresentado no início da fase.
-    var id = 2;
-    var dicas = 'Lembre-se que do comando girar.';
-    var objetivoMensagem = 'Nessa fase você deverá pegar o chip do poranito e ir para a posição indicada.';
+    var id = 3;
+    var dicas = 'Lembre-se de usar o comando MOVER';
+    var objetivoMensagem = 'Nessa fase você deverá todos os chips';
     var videoAula = 'https://www.youtube.com/embed/CaTSyqrQQ-o';
 
     //Significa que a tela de objetivo será desenhada seguindo essa matriz.
     var ob = [
            [0,0,0,0,0]
        ,   [0,0,0,0,0]
+       ,   [1,0,0,0,0]
        ,   [0,0,0,0,0]
-       ,   [0,0,0,0,4]
        ,   [0,0,0,0,0]
        ];
 
@@ -24,8 +24,8 @@ function getFase2(){
     var inicial = [
            [0,0,0,0,0]
        ,   [0,0,0,0,0]
-       ,   [1,0,0,0,11]
-       ,   [0,0,0,0,0]
+       ,   [1,11,11,11,11]
+       ,   [11,11,11,11,11]
        ,   [0,0,0,0,0]
        ];
 
@@ -35,7 +35,7 @@ function getFase2(){
     var orientacaoinicial = inicial[linhainicial][colunainicial];
 
     //Define quais blocos serão usados na partida
-    var blocos = '<block type="mover"></block> <block type="girarEsquerda"></block> <block type="girarDireita">';
+    var blocos = '<block type="mover"></block> <block type="girarEsquerda"></block> <block type="girarDireita"></block> <block type="repetir"></block>';
 
     fase2.setID(id);
     fase2.setDicas(dicas);
