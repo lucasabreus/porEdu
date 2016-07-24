@@ -137,6 +137,7 @@ function eventSheetLoaded() {
    faseAtual = getFase1();
    zerarMatriz(faseAtual);
    inicializaAjuda();
+   iniciaToolBox();
 }
 
 function inicializaAjuda(){

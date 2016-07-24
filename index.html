@@ -20,13 +20,13 @@
 		<script src="blockly/blocks_compressed.js"></script>
 		<script src="meusblocos.js"></script>
 		<script src="teste.js"></script>
-		<script src="blockly/msg/js/en.js"></script>
-		<script src="blockly/javascript_compressed.js"></script>
 		<script src="fases/fase1.js"></script>
 		<script src="fases/fase2.js"></script>
+		<script src="blockly/msg/js/en.js"></script>
+		<script src="blockly/javascript_compressed.js"></script>
 	</head>
 
-	<body>
+	<body onload="inicializar()">
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       	<script type="text/javascript" src="js/materialize.min.js"></script>
 
@@ -107,7 +107,7 @@
 			<div class="grid_8">
 				<div id="blocklyDiv" style="height: 600px;"></div>
 				    <xml id="toolbox" style="display: none">
-				    	<script>iniciaToolBox();</script>
+				    	
 				    </xml>
 
 				  	<script>
@@ -161,7 +161,12 @@
 
 					    function reset(){
 					    	pilha = [];
-					    	zerarMatriz(faseAtual);
+					    	zerarMatriz(fase);
+					    }
+
+					    function inicializar(){
+					    	
+					    	
 					    }
 				    </script>
 				</div>
