@@ -132,6 +132,7 @@ function zerarMatriz( fase ){
 
    drawScreen();
    drawObjetivo();
+   updateWork();
 }
 
 function inicializaAjuda(){
@@ -297,6 +298,14 @@ function diffMatrizes (){
    }
 }
 
+function updateWork () {
+  tol = '<xml>';
+              tol += faseAtual.getBlocos();
+              tol += '</xml>';
+   //workspace = '';
+   workspace.updateToolbox(tol);
+}
+
 function proximaFase(){
   var id = faseAtual.getID();
    if ( id == 1 ) faseAtual = getFase2();
@@ -305,11 +314,12 @@ function proximaFase(){
    else alert('Parabéns, você concluiu todos os níveis.');
 
    zerarMatriz(faseAtual);
-   tol = '<xml>';
-              tol += faseAtual.getBlocos();
-              tol += '</xml>';
+   //tol = '<xml>';
+              //tol += faseAtual.getBlocos();
+              //tol += '</xml>';
    //workspace = '';
-   workspace.updateToolbox(tol);
+   //workspace.updateToolbox(tol);
+   updateWork();
    inicializaAjuda();
 }
 
