@@ -234,7 +234,7 @@ function drawScreen() {
 
 //função para carregar os blocos na boolBox de acordo com a fase
  function iniciaToolBox(){
-   var a = document.getElementById('toolbox').innerHTML = blocos;
+   var a = document.getElementById('toolbox').innerHTML = faseAtual.getBlocos();
  }
 
 //Função para andar com uma casa o personagem de acordo com a orientação (SPRITE).
