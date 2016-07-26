@@ -11,12 +11,13 @@ var tamTela = 320;
 
 var tileMap;
 var objetivo;
-var dicas;
 
 var linha;
 var coluna;
 var orientacao;
-var spritePosVazia = 0;
+var spritePosVazia = 12;
+var spritePosOuro = 13;
+var iniciou = 0;
 
 var pilha = [];
 
@@ -30,7 +31,7 @@ var faseAtual = new fase();
 
 function fase() {
     var id;
-    var dicas;
+    var dicasFase;
     var objetivoMensagem;
     var videoAula;
     var ob;
@@ -45,7 +46,7 @@ function fase() {
    };
 
    this.setDicas = function (value) {
-        dicas = value;
+        dicasFase = value;
    };
    this.setObjetivoMensagem = function (value) {
         objetivoMensagem = value;
@@ -76,7 +77,7 @@ function fase() {
         return id;
    };
    this.getDicas = function () {
-      return dicas;
+      return dicasFase;
    };
    this.getObjetivoMensagem = function () {
         return objetivoMensagem;
@@ -104,13 +105,16 @@ function fase() {
    };
 }
 
+var iniciou = 0;
+
 function zerarMatriz( fase ){
+
    var inicial = fase.getInicial();
    var linhainicial = fase.getLinha();
    var colunainicial = fase.getColuna();
    var orientacaoinicial = fase.getOrientacao();
    var ob = fase.getob();
-   dicas = fase.getDicas();
+   var dicasget = fase.getDicas();
 
    tileMap = [[0,0,0,0,0]
    ,[0,0,0,0,0]
@@ -119,32 +123,23 @@ function zerarMatriz( fase ){
    ,[0,0,0,0,0]
    ];
 
+   objetivo = ob;
+
   for (i = 0; i<5; i++) { 
     for( j = 0; j<5;j++){
       tileMap[i][j] = inicial[i][j];
+      if ( tileMap[i][j] == 0 ) tileMap[i][j] = spritePosVazia;
+      if ( objetivo[i][j] == 0 ) objetivo[i][j] = spritePosVazia;
     }
   }
 
-   objetivo = ob;
    linha = linhainicial;
    coluna = colunainicial;
    orientacao = orientacaoinicial;
 
    drawScreen();
    drawObjetivo();
-   updateWork();
-}
-
-function inicializaAjuda(){
-   var valorVideo = '<div class="video-container"><iframe src="' + faseAtual.getVideoAula();
-   valorVideo += '" frameborder="0" allowfullscreen></iframe></div>';
-   dicas = faseAtual.getDicas();
-   var objetivoMensagem = faseAtual.getObjetivoMensagem();
-
-   document.getElementById("video").innerHTML = valorVideo;
-   document.getElementById("objh6").innerHTML = objetivoMensagem;
-   document.getElementById("dicash6").innerHTML = dicas;
-   $('#alerta').openModal();
+   updateWork(); 
 }
 
 //Função para desenhar na tela principal de acordo com a matriz Tilemap
@@ -167,9 +162,22 @@ function drawScreen() {
 
  function eventSheetLoaded (){
     faseAtual = getFase1();
-    zerarMatriz(faseAtual);
     inicializaAjuda();
+    zerarMatriz(getFase1());
+    iniciou = 1;
  }
+
+ function inicializaAjuda(){
+   var valorVideo = '<div class="video-container"><iframe src="' + faseAtual.getVideoAula();
+   valorVideo += '" frameborder="0" allowfullscreen></iframe></div>';
+   var dicas = faseAtual.getDicas();
+   var objetivoMensagem = faseAtual.getObjetivoMensagem();
+
+   document.getElementById("video").innerHTML = valorVideo;
+   document.getElementById("objh6").innerHTML = objetivoMensagem;
+   document.getElementById("dicash6").innerHTML = dicas;
+   $('#alerta').openModal();
+}
 
 //Desenha no canvas do objetivo de acordo com a variável objetivo
  function drawObjetivo() {
@@ -243,25 +251,25 @@ function mover_() {
    var valor = tileMap[linha][coluna];
    if ( orientacao == 1 ){
       if ( coluna + 1 < mapCols ){
-         tileMap[linha][coluna] = spritePosVazia;
+         tileMap[linha][coluna] = spritePosOuro;
          tileMap[linha][coluna+1] = valor;
          coluna++;
       }
    } else if ( orientacao == 3 ){
       if ( coluna - 1 >= 0 ){
-         tileMap[linha][coluna] = spritePosVazia;
+         tileMap[linha][coluna] = spritePosOuro;
          tileMap[linha][coluna-1] = valor;
          coluna--;
       }
    } else if ( orientacao == 2 ){
       if ( linha - 1 >= 0 ){
-         tileMap[linha][coluna] = spritePosVazia;
+         tileMap[linha][coluna] = spritePosOuro;
          tileMap[linha-1][coluna] = valor;
          linha--;
       }
    } else if ( orientacao == 4 ){
       if ( linha + 1 < mapRows ){
-         tileMap[linha][coluna] = spritePosVazia;
+         tileMap[linha][coluna] = spritePosOuro;
          tileMap[linha+1][coluna] = valor;
          linha++;
       }
@@ -285,7 +293,8 @@ function diffMatrizes (){
    var bool = 1;
    for( var i=0; i<objetivo.length; i++){
       for( var j=0; j<objetivo[i].length; j++){
-         if ( objetivo[i][j] != tileMap[i][j] ){
+         if ( objetivo[i][j] != tileMap[i][j] && tileMap[i][j] != spritePosVazia && tileMap[i][j] != spritePosOuro){
+            alert(tileMap[i][j]);
             bool = 0;
          }
       }
@@ -311,6 +320,7 @@ function proximaFase(){
    if ( id == 1 ) faseAtual = getFase2();
    else if ( id == 2 ) faseAtual = getFase3();
    else if ( id == 3 ) faseAtual = getFase4();
+   else if ( id == 4 ) faseAtual = getFase5();
    else alert('Parabéns, você concluiu todos os níveis.');
 
    zerarMatriz(faseAtual);

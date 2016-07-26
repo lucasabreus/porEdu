@@ -24,11 +24,12 @@
 		<script src="fases/fase2.js"></script>
 		<script src="fases/fase3.js"></script>
 		<script src="fases/fase4.js"></script>
+		<script src="fases/fase5.js"></script>
 		<script src="blockly/msg/js/en.js"></script>
 		<script src="blockly/javascript_compressed.js"></script>
 	</head>
 
-	<body style="background-image: url('img/background.png');background-repeat:repeat;">
+	<body onload="inicializa()" style="background-image: url('img/background.png');background-repeat:repeat;">
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       	<script type="text/javascript" src="js/materialize.min.js"></script>
 
@@ -54,20 +55,23 @@
 
 		      	</div>
 			    <div id="obj">
-			    	<h6 id="objh6"></h6>
+			    	<h4 class="center-align">OBJETIVO</h4>
+			    	<h6 id="objh6" class="center-align"></h6>
 			    	<canvas  id="telainicial" height="320" width="320" style="border:1px solid #d3d3d3;"></canvas>
 			    	<canvas id="telaobjetivo" height="320" width="320" style="border:1px solid red;"></canvas>
 			    </div>
-			    <div id="dicas" class="col s12"><h6 id="dicash6"></h6></div>
+			    <div id="dicas" class="col s12">
+			    	<h4 class="center-align">DICAS</h4>
+			    	<h6 class="center-align" id="dicash6"></h6>
+			    </div>
 	    	</div>
 	  	</div>
 
 	  	<div id="alertaAcerto" class="modal modal-fixed-footer">
 		    <div class="modal-content">
 	              <h1 class="flow-text center-align">PARABÉNS!</h1>
-	              <h4 class="flow-text">Você conseguiu completar o objetivo.</h4>
+	              <h4 class="flow-text center-align">Você conseguiu completar o objetivo.</h4>
 		    	  <img width="30%" src="img/poranito.png" alt="" class="responsive-img">
-	              <img width="30%" src="img/zygmundi.png" alt="" class="responsive-img">
 		    </div>
 		    <div class="modal-footer">
 		    	<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Próxima fase</a>
@@ -129,23 +133,6 @@
 						        scaleSpeed: 1.2},
 						   trashcan: true});
 
-				    	/*function showCode() {
-				    		drawScreen();
-					      // Generate JavaScript code and display it.
-					      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-					      var code = Blockly.JavaScript.workspaceToCode(workspace);
-					      alert(code);
-					    }
-
-					    function f(i, s){
-					    	if(i != s.length ){
-					    		setTimeout(function g(){
-					    			eval(s[i]);
-					    			f(i + 1, s);
-					    		}, 1000);
-					    	}
-					    }*/
-
 					    function runCode() {
 					      pilha = [];
 					   	  zerarMatriz(faseAtual);
@@ -169,6 +156,14 @@
 					    function reset(){
 					    	pilha = [];
 					    	zerarMatriz(faseAtual);
+					    }
+
+					    function inicializa(){
+					    	if ( iniciou == 0 ){
+					    		faseAtual = getFase1();
+    							inicializaAjuda();
+					    		zerarMatriz(getFase1());
+					    	}
 					    }
 				    </script>
 				</div>
