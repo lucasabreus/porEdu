@@ -216,6 +216,7 @@ function drawScreen() {
  }
 
  function girarEsquerda_ () {
+  Materialize.toast('GIRARESQUERDA( );', 1000);
    orientacao = orientacao + 1;
    if ( orientacao == 5 ) orientacao = 1;
 
@@ -229,6 +230,7 @@ function drawScreen() {
  }
 
  function girarDireita_ () {
+  Materialize.toast('GIRARDIREITA( );', 1000);
    if ( orientacao % 4 == 1 ) {
       orientacao += 3;
       tileMap[linha][coluna] += 3;
@@ -247,6 +249,7 @@ function drawScreen() {
 }
 
 function mover_() {
+   Materialize.toast('MOVER( );', 1000);
    //Orientação = 1 -> // 2 = <- // 3 = ˆ // 4 = v
    var valor = tileMap[linha][coluna];
    if ( orientacao == 1 ){
@@ -294,7 +297,6 @@ function diffMatrizes (){
    for( var i=0; i<objetivo.length; i++){
       for( var j=0; j<objetivo[i].length; j++){
          if ( objetivo[i][j] != tileMap[i][j] && tileMap[i][j] != spritePosVazia && tileMap[i][j] != spritePosOuro){
-            alert(tileMap[i][j]);
             bool = 0;
          }
       }
@@ -311,7 +313,6 @@ function updateWork () {
   tol = '<xml>';
               tol += faseAtual.getBlocos();
               tol += '</xml>';
-   //workspace = '';
    workspace.updateToolbox(tol);
 }
 
@@ -329,8 +330,8 @@ function proximaFase(){
               //tol += '</xml>';
    //workspace = '';
    //workspace.updateToolbox(tol);
-   updateWork();
    inicializaAjuda();
+   updateWork();
 }
 
 
@@ -338,6 +339,7 @@ function rodarPilha (){
    var time = document.getElementById('velocidadePoranito').value * 1000;
    if ( pilha.length != 0 ){
       var comando = pilha.shift();
+      document.getElementById('tocar').play();
       eval(comando);
       setTimeout( function f () { rodarPilha(); } ,time);
    } else {
