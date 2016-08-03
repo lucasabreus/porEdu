@@ -66,8 +66,8 @@
 			    	<h6 class="center-align" id="dicash6"></h6>
 			    </div>
 	    	</div>
-	    	<div class="modal-footer teal accent-3">
-		    	<a href="#!" class=" modal-action modal-close waves-effect waves-black btn-flat white">FECHAR</a>
+	    	<div class="modal-footer teal accent-3" data-indicators="true">
+		    	<a class=" modal-action modal-close waves-effect waves-black btn-flat white">FECHAR</a>
 		    </div>
 	  	</div>
 
@@ -172,7 +172,7 @@
 					    function inicializa(){
 					    	if ( iniciou == 0 ){
 					    		faseAtual = getFase1();
-    							inicializaAjuda();
+					    		inicializaAjuda();
 					    		zerarMatriz(getFase1());
 					    	}
 					    }

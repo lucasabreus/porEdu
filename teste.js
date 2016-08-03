@@ -176,6 +176,7 @@ function drawScreen() {
    document.getElementById("video").innerHTML = valorVideo;
    document.getElementById("objh6").innerHTML = objetivoMensagem;
    document.getElementById("dicash6").innerHTML = dicas;
+   $('#teste').carousel({full_width: true}); 
    $('#alerta').openModal();
 }
 
