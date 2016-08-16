@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head> 
+		<meta charset="UTF-8" /> 
+		<title>PorEDU</title> 
+		<link rel="stylesheet" href="css/reset.css" /> 
+		<link rel="stylesheet" href="css/text.css" /> 
+		<link rel="stylesheet" href="css/960.css" /> 
+		<link rel="stylesheet" href="css/estilo.css" /> 
+		<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+		
+		<script src="blockly/blockly_compressed.js"></script>
+		<script src="blockly/blocks_compressed.js"></script>
+		<script src="meusblocos.js"></script>
+		<script src="code.js"></script>
+		<script src="blockly/msg/js/en.js"></script>
+		<script src="blockly/javascript_compressed.js"></script>
+	</head>
+
+	<body onload="inicializa()" style="background-image: url('img/background.png');background-repeat:repeat;">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      	<script type="text/javascript" src="js/materialize.min.js"></script>
+
+      	<nav class="white"role="navigation">
+		    <div class="nav-wrapper container">
+		      <a href="index.html" class="brand-logo"><img style="margin-left:10px;" src="img/logo.png" class="logo-img" alt=""></a>
+		    </div>
+		</nav>
+	  	<br><br>
+
+	  	<audio id="tocar">
+		  <source src="blockly/media/disconnect.ogg" type="audio/ogg">
+		</audio>
+
+      	<div id="alerta" class="modal modal-fixed-footer">
+      		<ul class="tabs">
+		        <li class="tab col s3 cyan lighten-3"><a class="active" style="color:white;"href="#video">AJUDA</a></li>
+	      	</ul>
+	    	<div class="modal-content">
+		      	<div id="video" class="col s12">
+		      		<h1>TESTE</h1>
+		      	</div>
+	    	</div>
+	    	<div class="modal-footer teal accent-3" data-indicators="true">
+		    	<a class=" modal-action modal-close waves-effect waves-black btn-flat white">FECHAR</a>
+		    </div>
+	  	</div>
+
+		<div class="container_12" style="background-color:white;">
+			<div class="grid_4">
+				<canvas id="myCanvas" height="320" width="320" style="border:1px solid #d3d3d3;"></canvas>
+				
+				<div style="text-align:center;">
+					<i onclick="runCode()"><a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">play_arrow</i></a></i>
+					<i onclick="pilha = [];"><a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">stop</i></a></i>
+				</div>
+				<br>
+				 <a style="width:100%;" class="waves-effect waves-light btn  light-blue darken-3" onclick="$('#alerta').openModal();">AJUDA</a>
+			</div>
+
+			<div class="grid_8">
+				<div id="blocklyDiv" style="height: 600px;"></div>
+				    <xml id="toolbox" style="display: none">
+				    	<block type="mover"></block>
+				    	<block type="girarEsquerda"></block>
+				    	<block type="girarDireita"></block>
+				    	<block type="repetir"></block>
+				    </xml>
+
+				  	<script>
+				  		var time = 0;
+				    	var workspace = Blockly.inject('blocklyDiv',
+					    {toolbox: document.getElementById('toolbox'),
+					     zoom:
+					         {controls: true,
+					          wheel: true,
+					          startScale: 0.9,
+					          maxScale: 1.3,
+					          minScale: 0.6,
+					          scaleSpeed: 1.2},
+					     trashcan: true});
+
+					    function runCode() {
+						    if ( pilha.length == 0 ){
+							      // Generate JavaScript code and run it.
+							    window.LoopTrap = 1000;
+							    Blockly.JavaScript.INFINITE_LOOP_TRAP =
+							          'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+							    var code = Blockly.JavaScript.workspaceToCode(workspace);
+
+							    Blockly.JavaScript.INFINITE_LOOP_TRAP = null; 
+
+						      	try {
+						        	eval(code);
+						      	} catch (e) {
+						       		alert(e);
+						     	} 
+						      
+						    	rodarPilha();
+						   	}
+					    }
+				    </script>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
