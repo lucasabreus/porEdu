@@ -312,27 +312,35 @@ function diffMatrizes (){
 
 function updateWork () {
   tol = '<xml>';
-              tol += faseAtual.getBlocos();
-              tol += '</xml>';
-   workspace.updateToolbox(tol);
+  tol += faseAtual.getBlocos();
+  tol += '</xml>';
+  workspace.updateToolbox(tol);
 }
 
 function proximaFase(){
   var id = faseAtual.getID();
-   if ( id == 1 ) faseAtual = getFase2();
-   else if ( id == 2 ) faseAtual = getFase3();
-   else if ( id == 3 ) faseAtual = getFase4();
-   else if ( id == 4 ) faseAtual = getFase5();
-   else alert('Parabéns, você concluiu todos os níveis.');
+  if ( id == 1 ) faseAtual = getFase2();
+  else if ( id == 2 ) faseAtual = getFase3();
+  else if ( id == 3 ) faseAtual = getFase4();
+  else if ( id == 4 ) faseAtual = getFase5();
+  else if ( id == 5 ) faseAtual = getFase6();
+  else if ( id == 6 ) faseAtual = getFase7();
+  else if ( id == 7 ) faseAtual = getFase8();
+  else if ( id == 8 ) faseAtual = getFase9();
+  else if ( id == 9 ) faseAtual = getFase10();
+  else if ( id == 10 ) faseAtual = getFase11();
+  else if ( id == 11 ) faseAtual = getFase12();
+  else if ( id == 12 ) faseAtual = getFase13();
+  else alert('Parabéns, você concluiu todos os níveis.');
 
-   zerarMatriz(faseAtual);
-   //tol = '<xml>';
-              //tol += faseAtual.getBlocos();
-              //tol += '</xml>';
-   //workspace = '';
-   //workspace.updateToolbox(tol);
-   inicializaAjuda();
-   updateWork();
+  zerarMatriz(faseAtual);
+  //tol = '<xml>';
+             //tol += faseAtual.getBlocos();
+             //tol += '</xml>';
+  //workspace = '';
+  //workspace.updateToolbox(tol);
+  inicializaAjuda();
+  updateWork();
 }
 
 
