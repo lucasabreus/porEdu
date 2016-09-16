@@ -1,31 +1,31 @@
-function getFase4(){
+function getFase11(){
     fase2 = new fase();
     //Javascript criado para determinar os padrões da fase.
 
     //Autor: Lucas
     
     //Vídeo apresentado no início da fase.
-    var id = 4;
-    var dicasFase = 'Lembre-se de usar o comando MOVER';
+    var id = 11;
+    var dicasFase = 'Lembre-se de usar o comando REPETIR';
     var objetivoMensagem = 'Nessa fase você deverá ir para a posição indicada';
-    var videoAula = 'https://www.youtube.com/embed/UjHAxRhnTHM';
+    var videoAula = 'https://www.youtube.com/embed/_AjqkkVJdOU';
 
     //Significa que a tela de objetivo será desenhada seguindo essa matriz.
     var ob = [
-           [0,0,0,0,0]
+           [2,0,0,0,0]
        ,   [0,0,0,0,0]
-       ,   [0,0,0,0,1]
+       ,   [0,0,0,0,0]
        ,   [0,0,0,0,0]
        ,   [0,0,0,0,0]
        ];
 
     //Tela inicial será desenhada de acordo com a seguinte matriz
     var inicial = [
-           [0,0,0,0,0]
+           [11,0,0,0,0]
        ,   [0,0,0,0,0]
-       ,   [1,11,11,11,11]
+       ,   [1,0,0,0,0]
        ,   [0,0,0,0,0]
-       ,   [0,0,0,0,0]
+       ,   [11,0,0,0,0]
        ];
 
     //Posição do personagem na tela e orientação
@@ -34,7 +34,7 @@ function getFase4(){
     var orientacaoinicial = inicial[linhainicial][colunainicial];
 
     //Define quais blocos serão usados na partida
-    var blocos = '<block type="mover"></block>';
+    var blocos = '<block type="mover"></block> <block type="girarEsquerda"></block> <block type="girarDireita"></block> <block type="repetir"></block> ';
 
     fase2.setID(id);
     fase2.setDicas(dicasFase);
