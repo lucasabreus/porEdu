@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <div class="white"><center><a href="/"><img src="img/logo.png"></a></center></div>
+  
+  <body class="blue">
+    <div class="container">
+      <div class="row">
+        <a href="poranito.html" class="waves-effect waves-light btn red right">Pular o tutorial</a>
+        <div class="col s1">
+          <a onclick="anterior()" class="btn-floating btn-large waves-effect waves-light white" style="margin-top: 320px;margin-left: 10px;"><i  class="material-icons black-text">skip_previous</i></a>
+        </div>
+        <div style="background-color: white; margin-top:30px;height:82%;border-radius:40px;" class="col s10">
+          <center><h1>BEM VINDO AO POREDU</h1></center>
+          <img class="col s5" src="img/poranito2.png">
+          <div id="conteudo">
+            <h4>Eu sou o poranito e irei te mostrar como programar é fácil!</h4>
+            Aperte no símbolo <a class="btn-floating btn-large waves-effect waves-light white" ><i onclick="proximo()" class="material-icons black-text">skip_next</i></a> para avançar no tutorial.
+          </div>
+        </div>
+        <div class="col s1">
+          <a onclick="proximo()" class="btn-floating btn-large waves-effect waves-light white" style="margin-top: 320px;margin-left: 10px;"><i  class="material-icons black-text">skip_next</i></a>
+        </div>
+      </div>
+    </div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </body>
+</html>
+
+<script>
+  $(document).ready(function(){
+      $('.carousel.carousel-slider').carousel({full_width: true});
+  });
+
+  var id = 1;
+
+  function proximo () {
+    if ( id < 10 ) id++;
+    fase();
+  }
+
+  function anterior() {
+    if ( id > 1 ) id--;
+    fase();
+  }
+
+  function fase () {
+    if ( id == 1 ){
+      document.getElementById("conteudo").innerHTML = '<h4>Eu sou o poranito e irei te mostrar como programar é fácil!</h4>Aperte no símbolo <a class="btn-floating btn-large waves-effect waves-light white" ><i onclick="proximo()" class="material-icons black-text">skip_next</i></a> para avançar no tutorial.';
+    } else if ( id == 2 ){
+      document.getElementById("conteudo").innerHTML = 'Para programarmos, precisamos de códigos, que servirão para executar diferentes ações.<br>Veja alguns códigos que eu entendo, não se preocupe, irei explicar cada um bem detalhadamente.<img src="img/blocos.png">';
+    } else if ( id == 3 ){
+      document.getElementById("conteudo").innerHTML = 'Para criar o código, você deve clicar no bloco na área cinza e arrastar para a área branca.<br><img width="46%" src="img/workspace.png">';
+    } else if ( id == 4 ){
+      document.getElementById("conteudo").innerHTML = 'Agora que criou o código, para executar tem o simulador Poranitico versão galaxial 3.<br><center><img src="img/simulador.png"></center>';
+    } else if ( id == 5 ){
+      document.getElementById("conteudo").innerHTML = 'Esse simulador serve para eu executar o código que você criou.<br><center><img src="img/simulador.png"></center>';
+    } else if ( id == 6 ){
+      document.getElementById("conteudo").innerHTML = 'O botão verde faz com que eu execute o código.<br>O botão vermelho faz com que eu pare de executar o código.<br>O botão azul faz com que eu pare de executar o código e volte para a posição inicial.<br><center><img src="img/simulador.png"></center>';
+    } else if ( id == 7 ){
+       document.getElementById("conteudo").innerHTML = 'A cada fase irei te ensinar um comando e propor um desafio.<br>Aparecerá essa telinha onde você pode consultar o objetivo, ver o vídeo da fase e ainda pegar algumas dicas.<br><br><center><img width="53%" src="img/alerta.png"></center>';
+    } else if ( id == 8 ){
+       document.getElementById("conteudo").innerHTML = 'Você vai usar os blocos para criar o código e completar o objetivo.<br><br><center><img width="53%" src="img/alerta.png"></center>';
+    } else if ( id == 9 ){
+       document.getElementById("conteudo").innerHTML = 'Quando completar, irei te passar mais um desafio radical do poranito. Caso ainda tenha dúvida, terá esse botão <a class="waves-effect waves-light btn  light-blue darken-3 center-align">AJUDA</a><br>Clicando nele irá aparecer a tela de ajuda novamente.<br><center><img width="53%" src="img/alerta.png"></center>';
+    } else if ( id == 10 ){
+       document.getElementById("conteudo").innerHTML = '<center>Pronto, agora podemos começar nossa aventura.<br><br><a href="poranito.html" class="waves-effect waves-light btn blue center-align">COMECAR</a></center>';
+    }
+  }
+</script>
+        
