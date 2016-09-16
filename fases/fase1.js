@@ -3,19 +3,18 @@ function getFase1(){
     //Javascript criado para determinar os padrões da fase.
 
     //Autor: Lucas
-    //Objetivo da fase: Jogador usar o laço de repetição "REPITA" e conseguir pegar o chip.
-
+    
     //Vídeo apresentado no início da fase.
     var id = 1;
     var dicasFase = 'Lembre-se de usar o comando MOVER';
-    var objetivoMensagem = 'Nessa fase você deverá pegar o chip do poranito.';
-    var videoAula = 'https://www.youtube.com/embed/CaTSyqrQQ-o';
+    var objetivoMensagem = 'Nessa fase você deverá ir para a posição indicada';
+    var videoAula = 'https://www.youtube.com/embed/c7O9mBmaUBw';
 
     //Significa que a tela de objetivo será desenhada seguindo essa matriz.
     var ob = [
            [0,0,0,0,0]
        ,   [0,0,0,0,0]
-       ,   [0,0,1,0,0]
+       ,   [0,1,0,0,0]
        ,   [0,0,0,0,0]
        ,   [0,0,0,0,0]
        ];
@@ -24,7 +23,7 @@ function getFase1(){
     var inicial = [
            [0,0,0,0,0]
        ,   [0,0,0,0,0]
-       ,   [1,0,11,0,0]
+       ,   [1,0,0,0,0]
        ,   [0,0,0,0,0]
        ,   [0,0,0,0,0]
        ];
